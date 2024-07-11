@@ -1,0 +1,16 @@
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="azul_logo">#244E77</color>
+    <color name="fondo_claro">#F5F5F5</color> <!-- Fondo gris claro -->
+    <color name="fondo">#FFFFFF</color> <!-- Fondo blanco para tarjetas -->
+    <color name="barra">#244E77</color> <!-- Barra azul cielo -->
+    <color name="micolor">#000000</color> <!-- Color de acento blanco -->
+    <color name="colorPrimary">#244E77</color> <!-- Azul cielo primario -->
+    <color name="colorPrimaryDark">#4682B4</color> <!-- Azul acero oscuro primario -->
+    <color name="colorAccent">#FFFFFF</color> <!-- Blanco acento -->
+    <color name="colorMenuText">#000000</color> <!-- Texto del menú negro -->
+    <color name="colorMenuItem">#FFFFFF</color> <!-- Ítem del menú blanco -->
+    <color name="cardview_light_background">#FFFFFF</color>
+    <color name="indigo">#3F51B5</color>
+</resources>

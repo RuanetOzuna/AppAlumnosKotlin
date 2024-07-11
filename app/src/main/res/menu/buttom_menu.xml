@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btnhome"
+        android:icon="@drawable/home"
+        android:title="Inicio"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/btnlista"
+        android:icon="@drawable/list"
+        android:title="Lista"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/btndb"
+        android:icon="@drawable/db"
+        android:title="Base de Datos"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/btnacera"
+        android:icon="@drawable/acerca"
+        android:title="Acerca de"
+        app:showAsAction="never"/>
+</menu>

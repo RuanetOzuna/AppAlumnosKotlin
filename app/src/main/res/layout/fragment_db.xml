@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DbFragment"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="16dp"
+            android:background="@color/barra">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sfrmDb"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@color/barra"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/lblMatricula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Matricula"
+                    android:textColor="@color/azul_logo"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtMatricula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Matricula"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/lblNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nombre"
+                    android:textColor="@color/azul_logo"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Paterno, Materno, Nombres" />
+
+                <TextView
+                    android:id="@+id/lblDomicilio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Domicilio"
+                    android:textColor="@color/azul_logo"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtDomicilio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Calle # Colonia CP" />
+
+                <TextView
+                    android:id="@+id/lblEspecialidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Especialidad"
+                    android:textColor="@color/azul_logo"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtEspecialidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Licenciatura o Ingenieria" />
+
+                <TextView
+                    android:id="@+id/lblFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Foto"
+                    android:textColor="@color/azul_logo"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnSelectImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Seleccionar Imagen" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="100dp"
+                    app:cardElevation="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/txtError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:layout_marginBottom="16dp">
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btnGuardar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Guardar"
+                    android:backgroundTint="@color/azul_logo"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/btnBuscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Buscar"
+                    android:backgroundTint="@color/azul_logo"
+                    android:textColor="@color/white"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btnBorrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Borrar"
+                    android:backgroundTint="@color/azul_logo"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/btnTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Agregar"
+                    android:backgroundTint="@color/azul_logo"
+                    android:textColor="@color/white"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

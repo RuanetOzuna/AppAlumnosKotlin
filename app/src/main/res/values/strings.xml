@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">appMenuButtom92</string>
+    <string name="sfrmHome">Inicio</string>
+    <string name="sfrmLista">Lista de Alumnos</string>
+    <string name="sfrmDb">Acceso a Datos</string>
+    <string name="sfrmAc">Acerca de</string>
+    <string name="alumno_nombre">Ozuna Diaz Ruanet Alejandro</string>
+    <string name="alumno_matricula">2021030124</string>
+    <string name="universidad_nombre">Universidad Politécnica de Sinaloa</string>
+    <string name="alumno_carrera_grupo">Ing. en Tecnologías de la Información 9-2</string>
+    <string name="alumno_materia">Programación Móvil</string>
+    <string name="profesor_nombre">Dr. Ramon Patricio Velázquez Cuadras</string>
+    <string name="trabajo_nombre">Actividad 2.- Calculadora.</string>
+    <string name="fecha_entrega">21 de junio de 2024</string>
+    <string name="search">Search</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="alumnos">
+        <item>QUEZADA RAMOS JULIO EMILIANO </item>
+        <item>RAMÍREZ MANRÍQUEZ JOSÉ LUIS </item>
+        <item>GARCIA BUSTAMANTE GAEL ALEJANDRO </item>
+        <item>MEJIA VAZQUEZ DAVID </item>
+        <item>RIVERA PUENTE JUAN MANUEL</item>
+        <item>LEDEZMA SALAZAR ADRIÁN ANDRÉS</item>
+        <item>VAZQUEZ GARCIA CAROL</item>
+        <item>ARIAS TIRADO MATEO</item>
+        <item>RODRIGUEZ CEVALLOS ELENA DEL CARMEN</item>
+        <item>QUINTERO HERRERA IRVING ZURIEL</item>
+        <item>RODRÍGUEZ DENNIS JAIME DE JESÚS</item>
+        <item>LIZARRAGA ACOSTA JOSÉ YAIR</item>
+        <item>NORIEGA FITCH FABIO MANUEL</item>
+        <item>MENDOZA LIZARRAGA RODOLFO</item>
+        <item>SANCHEZ URREA ABEL</item>
+        <item>TIRADO RIOS LUIS MARIO</item>
+        <item>SALAZAR GUTIERREZ NATALIA ABIGAIL</item>
+        <item>VEGA PIÑA OSCAR AXEL</item>
+        <item>OZUNA DIAZ RUANET ALEJANDRO</item>
+        <item>FLORES LICEA EMILIO</item>
+        <item>AGUILAR ROMERO JONATHAN JESÚS</item>
+        <item>TIRADO RIOS OSCAR DE JESUS</item>
+        <item>RAMIREZ OSUNA ANGEL GABRIEL</item>
+        <item>MORALES NIEBLA JESUS ESTEBAN</item>
+        <item>PASTRANO NAVARRO BRANDON ROGELIO</item>
+        <item>OSUNA BUENO MERARI JAZEL</item>
+        <item>UBALDO SANCHEZ JUAN CARLOS</item>
+        <item>QUI MORA ANGEL ERNESTO</item>
+        <item>REYES LIZARRAGA JONATHAN ALEXIS</item>
+        <item>GARCIA GONZALEZ JORGE ENRIQUE</item>
+        <item>SALAZAR TIRADO EVELYN DANIELA</item>
+        <item>RENDON ESTRADA JORGE</item>
+        <item>TIRADO ROMERO JUAN JOSÉ</item>
+    </string-array>
+</resources>
