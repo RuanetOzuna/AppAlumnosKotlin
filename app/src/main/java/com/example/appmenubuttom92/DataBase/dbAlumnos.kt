@@ -2,107 +2,97 @@ package com.example.appmenubuttom92.Database
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 
-class dbAlumnos(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class dbAlumnos(private val context: Context) {
+    private val dbHelper: AlumnosDbHelper = AlumnosDbHelper(context)
+    private lateinit var db: SQLiteDatabase
 
-    companion object {
-        private const val DATABASE_NAME = "Alumnos.db"
-        private const val DATABASE_VERSION = 1
-        private const val TABLE_ALUMNOS = "alumnos"
-        private const val COLUMN_ID = "id"
-        private const val COLUMN_MATRICULA = "matricula"
-        private const val COLUMN_NOMBRE = "nombre"
-        private const val COLUMN_DOMICILIO = "domicilio"
-        private const val COLUMN_ESPECIALIDAD = "especialidad"
-        private const val COLUMN_FOTO = "foto"
+    private val leerRegistro = arrayOf(
+        DefinirDB.Alumnos.ID,
+        DefinirDB.Alumnos.MATRICULA,
+        DefinirDB.Alumnos.NOMBRE,
+        DefinirDB.Alumnos.DOMICILIO,
+        DefinirDB.Alumnos.ESPECIALIDAD,
+        DefinirDB.Alumnos.FOTO
+    )
+
+    fun openDataBase() {
+        db = dbHelper.writableDatabase
     }
 
-    override fun onCreate(db: SQLiteDatabase?) {
-        val createTable = ("CREATE TABLE " + TABLE_ALUMNOS + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_MATRICULA + " TEXT,"
-                + COLUMN_NOMBRE + " TEXT,"
-                + COLUMN_DOMICILIO + " TEXT,"
-                + COLUMN_ESPECIALIDAD + " TEXT,"
-                + COLUMN_FOTO + " TEXT" + ")")
-        db?.execSQL(createTable)
+    fun insertarAlumno(alumno: Alumno): Long {
+        val value = ContentValues().apply {
+            put(DefinirDB.Alumnos.MATRICULA, alumno.matricula)
+            put(DefinirDB.Alumnos.NOMBRE, alumno.nombre)
+            put(DefinirDB.Alumnos.DOMICILIO, alumno.domicilio)
+            put(DefinirDB.Alumnos.ESPECIALIDAD, alumno.especialidad)
+            put(DefinirDB.Alumnos.FOTO, alumno.foto)
+        }
+        return db.insert(DefinirDB.Alumnos.TABLA, null, value)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS $TABLE_ALUMNOS")
-        onCreate(db)
+    fun actualizarAlumno(alumno: Alumno, id: Int): Int {
+        val value = ContentValues().apply {
+            put(DefinirDB.Alumnos.MATRICULA, alumno.matricula)
+            put(DefinirDB.Alumnos.NOMBRE, alumno.nombre)
+            put(DefinirDB.Alumnos.DOMICILIO, alumno.domicilio)
+            put(DefinirDB.Alumnos.ESPECIALIDAD, alumno.especialidad)
+            put(DefinirDB.Alumnos.FOTO, alumno.foto)
+        }
+        return db.update(DefinirDB.Alumnos.TABLA, value, "${DefinirDB.Alumnos.ID} = ?", arrayOf(id.toString()))
     }
 
-    fun openDataBase(): SQLiteDatabase {
-        return this.writableDatabase
+    fun borrarAlumno(id: Int): Int {
+        return db.delete(DefinirDB.Alumnos.TABLA, "${DefinirDB.Alumnos.ID} = ?", arrayOf(id.toString()))
     }
 
-    fun getAlumno(matricula: String): Alumno {
-        val db = this.readableDatabase
-        val cursor = db.query(
-            TABLE_ALUMNOS, arrayOf(COLUMN_ID, COLUMN_MATRICULA, COLUMN_NOMBRE, COLUMN_DOMICILIO, COLUMN_ESPECIALIDAD, COLUMN_FOTO),
-            "$COLUMN_MATRICULA=?", arrayOf(matricula), null, null, null, null
+    fun mostrarAlumnos(cursor: Cursor): Alumno {
+        return Alumno(
+            id = cursor.getInt(0),
+            matricula = cursor.getString(1),
+            nombre = cursor.getString(2),
+            domicilio = cursor.getString(3),
+            especialidad = cursor.getString(4),
+            foto = cursor.getString(5)
         )
-        cursor?.moveToFirst()
-        val alumno = Alumno(
-            cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
-            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MATRICULA)),
-            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE)),
-            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DOMICILIO)),
-            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ESPECIALIDAD)),
-            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FOTO))
-        )
+    }
+
+    fun getAlumno(id: Long): Alumno {
+        val db = dbHelper.readableDatabase
+        val cursor = db.query(DefinirDB.Alumnos.TABLA, leerRegistro, "${DefinirDB.Alumnos.ID} = ?", arrayOf(id.toString()), null, null, null)
+        cursor.moveToFirst()
+        val alumno = mostrarAlumnos(cursor)
         cursor.close()
         return alumno
     }
 
-    fun getAllAlumnos(): List<Alumno> {
-        val alumnos = mutableListOf<Alumno>()
-        val db = this.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM $TABLE_ALUMNOS", null)
-        if (cursor.moveToFirst()) {
-            do {
-                val alumno = Alumno(
-                    id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
-                    matricula = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MATRICULA)),
-                    nombre = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE)),
-                    domicilio = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DOMICILIO)),
-                    especialidad = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ESPECIALIDAD)),
-                    foto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FOTO))
-                )
-                alumnos.add(alumno)
-            } while (cursor.moveToNext())
+    fun getAlumno(matricula: String): Alumno {
+        val db = dbHelper.readableDatabase
+        val cursor = db.query(DefinirDB.Alumnos.TABLA, leerRegistro, "${DefinirDB.Alumnos.MATRICULA} = ?", arrayOf(matricula), null, null, null)
+        cursor.use {
+            if (it.moveToFirst()) {
+                return mostrarAlumnos(it)
+            }
+        }
+        return Alumno()
+    }
+
+    fun leerTodos(): ArrayList<Alumno> {
+        val cursor = db.query(DefinirDB.Alumnos.TABLA, leerRegistro, null, null, null, null, null)
+        val listaAlumno = ArrayList<Alumno>()
+        cursor.moveToFirst()
+        while (!cursor.isAfterLast) {
+            val alumno = mostrarAlumnos(cursor)
+            listaAlumno.add(alumno)
+            cursor.moveToNext()
         }
         cursor.close()
-        return alumnos
+        return listaAlumno
     }
 
-    fun insertarAlumno(alumno: Alumno): Long {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(COLUMN_MATRICULA, alumno.matricula)
-        values.put(COLUMN_NOMBRE, alumno.nombre)
-        values.put(COLUMN_DOMICILIO, alumno.domicilio)
-        values.put(COLUMN_ESPECIALIDAD, alumno.especialidad)
-        values.put(COLUMN_FOTO, alumno.foto)
-        return db.insert(TABLE_ALUMNOS, null, values)
-    }
-
-    fun actualizarAlumno(alumno: Alumno, id: Int): Int {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(COLUMN_MATRICULA, alumno.matricula)
-        values.put(COLUMN_NOMBRE, alumno.nombre)
-        values.put(COLUMN_DOMICILIO, alumno.domicilio)
-        values.put(COLUMN_ESPECIALIDAD, alumno.especialidad)
-        values.put(COLUMN_FOTO, alumno.foto)
-        return db.update(TABLE_ALUMNOS, values, "$COLUMN_ID=?", arrayOf(id.toString()))
-    }
-
-    fun borrarAlumno(id: Int): Int {
-        val db = this.writableDatabase
-        return db.delete(TABLE_ALUMNOS, "$COLUMN_ID=?", arrayOf(id.toString()))
+    fun close() {
+        dbHelper.close()
     }
 }

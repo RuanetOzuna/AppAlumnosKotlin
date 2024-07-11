@@ -5,57 +5,80 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:id="@+id/cv"
-    android:layout_margin="4dp"
+    android:layout_margin="16dp"
     android:animateLayoutChanges="true"
     app:cardCornerRadius="20dp"
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:padding="2dp">
+            android:orientation="vertical"
+            android:padding="6dp">
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/foto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:shapeAppearanceOverlay="@style/CircularImageView"
-                android:scaleType="centerCrop"/>
-            <TextView
-                android:id="@+id/txtAlumnoNombre"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ruanet"
+                app:shapeAppearanceOverlay="@style/RoundImage">
+            </com.google.android.material.imageview.ShapeableImageView>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_toEndOf="@id/foto"
-                android:layout_alignTop="@id/foto"
-                android:layout_marginStart="8dp"/>
-            <TextView
-                android:id="@+id/txtCarrera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:layout_below="@id/txtAlumnoNombre"
-                android:layout_toEndOf="@id/foto"
-                android:layout_marginStart="8dp"/>
+                android:id="@+id/lineLay"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/foto"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAlumnoNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="OZUNA DIAZ RUANET ALEJANDRO"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtCarrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:text="Ing. Tec. Información"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold">
+                </TextView>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/txtMatricula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                android:text="2021030124"
                 android:textSize="12sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_below="@id/txtCarrera"
-                android:layout_toEndOf="@id/foto"
-                android:layout_marginStart="8dp"/>
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+            </TextView>
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

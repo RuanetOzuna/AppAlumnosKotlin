@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,13 +37,15 @@ android {
 }
 
 dependencies {
-    implementation("androidx.recyclerview:recyclerview:1.3.0")
-    implementation("com.squareup.picasso:picasso:2.71828")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.fragment:fragment-ktx:1.5.5")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.google.android.material:material:1.3.0")
+    implementation("androidx.appcompat:appcompat:1.3.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("androidx.fragment:fragment-ktx:1.3.3")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

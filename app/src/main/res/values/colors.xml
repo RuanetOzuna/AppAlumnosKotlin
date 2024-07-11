@@ -11,6 +11,4 @@
     <color name="colorAccent">#FFFFFF</color> <!-- Blanco acento -->
     <color name="colorMenuText">#000000</color> <!-- Texto del menú negro -->
     <color name="colorMenuItem">#FFFFFF</color> <!-- Ítem del menú blanco -->
-    <color name="cardview_light_background">#FFFFFF</color>
-    <color name="indigo">#3F51B5</color>
 </resources>

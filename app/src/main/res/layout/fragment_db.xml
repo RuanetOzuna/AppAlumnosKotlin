@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Matricula"
-                    android:textColor="@color/azul_logo"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <EditText
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Nombre"
-                    android:textColor="@color/azul_logo"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <EditText
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Domicilio"
-                    android:textColor="@color/azul_logo"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <EditText
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Especialidad"
-                    android:textColor="@color/azul_logo"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <EditText
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Foto"
-                    android:textColor="@color/azul_logo"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <Button
@@ -138,8 +138,7 @@
                         android:id="@+id/imgPreview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:visibility="gone"/>
+                        android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
 
                 <TextView

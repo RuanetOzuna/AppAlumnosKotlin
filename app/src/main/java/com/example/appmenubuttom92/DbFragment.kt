@@ -16,14 +16,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.activityViewModels
 import com.example.appmenubuttom92.Database.Alumno
 import com.example.appmenubuttom92.Database.dbAlumnos
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 private const val PICK_IMAGE_REQUEST = 1
 
 class DbFragment : Fragment() {
+    private val alumnosViewModel: AlumnosViewModel by activityViewModels()
     private lateinit var btnGuardar: Button
     private lateinit var btnBuscar: Button
     private lateinit var btnBorrar: Button
@@ -94,16 +94,22 @@ class DbFragment : Fragment() {
                 Toast.makeText(requireContext(), "Alumno actualizado con éxito", Toast.LENGTH_SHORT).show()
             } else {
                 // Insertar nuevo alumno
-                val alumno = Alumno()
-                alumno.nombre = nombre
-                alumno.matricula = matricula
-                alumno.domicilio = domicilio
-                alumno.especialidad = especialidad
-                alumno.foto = selectedImageUri.toString()
+                val alumno = Alumno(
+                    nombre = nombre,
+                    matricula = matricula,
+                    domicilio = domicilio,
+                    especialidad = especialidad,
+                    foto = selectedImageUri.toString()
+                )
 
                 db.insertarAlumno(alumno)
                 Toast.makeText(requireContext(), "Registro Exitoso", Toast.LENGTH_SHORT).show()
             }
+
+            // Actualizar la lista de alumnos en el ViewModel
+            val listaAlumnos = db.leerTodos()
+            alumnosViewModel.setAlumnos(listaAlumnos)
+
             db.close()
             limpiarCampos()
             hideKeyboard()
@@ -209,12 +215,7 @@ class DbFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(param1: String, param2: String) =
-            DbFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        @JvmStatic
+        fun newInstance() = DbFragment()
     }
 }

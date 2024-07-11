@@ -7,45 +7,40 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.appmenubuttom92.Database.Alumno
 
-class MiAdaptador(
-    private val listaAlumnos: ArrayList<AlumnoLista>,
-    private val context: Context
-) : RecyclerView.Adapter<MiAdaptador.ViewHolder>(), View.OnClickListener {
+class MiAdaptador(private val context: Context, private var alumnos: List<Alumno>) :
+    RecyclerView.Adapter<MiAdaptador.ViewHolder>() {
 
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var listener: View.OnClickListener? = null
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val foto: ImageView = view.findViewById(R.id.foto)
+        val txtAlumnoNombre: TextView = view.findViewById(R.id.txtAlumnoNombre)
+        val txtCarrera: TextView = view.findViewById(R.id.txtCarrera)
+        val txtMatricula: TextView = view.findViewById(R.id.txtMatricula)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = inflater.inflate(R.layout.alumno_item, parent, false)
-        view.setOnClickListener(this)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.alumno_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val alumno = listaAlumnos[position]
-        holder.txtMatricula.text = alumno.matricula
-        holder.txtNombre.text = alumno.nombre
-        holder.idImagen.setImageResource(alumno.foto)
+        val alumno = alumnos[position]
+        holder.txtAlumnoNombre.text = alumno.nombre
         holder.txtCarrera.text = alumno.especialidad
+        holder.txtMatricula.text = alumno.matricula
+        // Cargar la imagen usando Glide
+        Glide.with(context)
+            .load(alumno.foto) // Suponiendo que tienes una URL o URI de la foto
+            .into(holder.foto)
     }
 
-    override fun getItemCount(): Int {
-        return listaAlumnos.size
-    }
+    override fun getItemCount() = alumnos.size
 
-    fun setOnClickListener(listener: View.OnClickListener) {
-        this.listener = listener
-    }
-
-    override fun onClick(v: View) {
-        listener?.onClick(v)
-    }
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtNombre: TextView = itemView.findViewById(R.id.txtAlumnoNombre)
-        val txtMatricula: TextView = itemView.findViewById(R.id.txtMatricula)
-        val txtCarrera: TextView = itemView.findViewById(R.id.txtCarrera)
-        val idImagen: ImageView = itemView.findViewById(R.id.foto)
+    fun actualizarAlumnos(nuevosAlumnos: List<Alumno>) {
+        this.alumnos = nuevosAlumnos
+        notifyDataSetChanged()
     }
 }
