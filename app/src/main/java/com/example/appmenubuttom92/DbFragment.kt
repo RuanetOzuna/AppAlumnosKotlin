@@ -85,9 +85,9 @@ class DbFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            if (especialidad != "Licenciatura" && especialidad != "Ingenieria") {
+            if (especialidad != "Licenciatura" && especialidad != "Ingeniería" && especialidad != "Ing. Tec. de la Información") {
                 txtError.visibility = View.VISIBLE
-                txtError.text = "Especialidad debe ser 'Licenciatura' o 'Ingenieria'"
+                txtError.text = "Especialidad debe ser 'Licenciatura' o 'Ingenieria' o 'Ing. Tec. de la Información'"
                 return@setOnClickListener
             } else {
                 txtError.visibility = View.GONE

@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:hint="Licenciatura o Ingenieria" />
+                    android:hint="Licenciatura, Ingenieria o Ing. Tec. de la Información" />
                 <TextView
                     android:id="@+id/lblFoto"
                     android:layout_width="match_parent"

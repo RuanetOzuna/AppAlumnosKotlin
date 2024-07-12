@@ -13,6 +13,8 @@ import com.example.appmenubuttom92.Database.Alumno
 class MiAdaptador(private val context: Context, private var alumnos: List<Alumno>, private val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<MiAdaptador.ViewHolder>() {
 
+    private var alumnosFiltrados: List<Alumno> = alumnos
+
     interface OnItemClickListener {
         fun onItemClick(alumno: Alumno)
     }
@@ -31,7 +33,7 @@ class MiAdaptador(private val context: Context, private var alumnos: List<Alumno
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val alumno = alumnos[position]
+        val alumno = alumnosFiltrados[position]
         holder.txtAlumnoNombre.text = alumno.nombre
         holder.txtCarrera.text = alumno.especialidad
         holder.txtMatricula.text = alumno.matricula
@@ -45,10 +47,23 @@ class MiAdaptador(private val context: Context, private var alumnos: List<Alumno
         }
     }
 
-    override fun getItemCount() = alumnos.size
+    override fun getItemCount() = alumnosFiltrados.size
 
     fun actualizarAlumnos(nuevosAlumnos: List<Alumno>) {
         this.alumnos = nuevosAlumnos
+        this.alumnosFiltrados = nuevosAlumnos
+        notifyDataSetChanged()
+    }
+
+    fun filtrar(query: String?) {
+        alumnosFiltrados = if (query.isNullOrEmpty()) {
+            alumnos
+        } else {
+            alumnos.filter {
+                it.nombre.contains(query, ignoreCase = true) ||
+                        it.matricula.contains(query, ignoreCase = true)
+            }
+        }
         notifyDataSetChanged()
     }
 }
