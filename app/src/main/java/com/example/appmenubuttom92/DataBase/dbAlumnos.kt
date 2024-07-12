@@ -76,7 +76,7 @@ class dbAlumnos(private val context: Context) {
                 return mostrarAlumnos(it)
             }
         }
-        return Alumno()
+        return Alumno() // Asegúrate de tener valores predeterminados en el constructor de Alumno
     }
 
     fun leerTodos(): ArrayList<Alumno> {

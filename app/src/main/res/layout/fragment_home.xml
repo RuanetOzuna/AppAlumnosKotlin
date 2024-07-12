@@ -73,8 +73,6 @@
 
         </LinearLayout>
 
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -211,5 +209,44 @@
             android:textColor="@color/black"
             android:gravity="center"
             android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/azul_logo"
+            android:text="LinkedIn"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/linkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:autoLink="web"
+            android:textColorLink="@color/black"
+            android:text="https://www.linkedin.com/in/ruanetozuna"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/azul_logo"
+            android:text="GitHub"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:autoLink="web"
+            android:textColorLink="@color/black"
+            android:text="https://github.com/RuanetOzuna"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
     </LinearLayout>
 </FrameLayout>

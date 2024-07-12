@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.appmenubuttom92.Database.Alumno
 
-class MiAdaptador(private val context: Context, private var alumnos: List<Alumno>) :
+class MiAdaptador(private val context: Context, private var alumnos: List<Alumno>, private val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<MiAdaptador.ViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(alumno: Alumno)
+    }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val foto: ImageView = view.findViewById(R.id.foto)
@@ -35,6 +39,10 @@ class MiAdaptador(private val context: Context, private var alumnos: List<Alumno
         Glide.with(context)
             .load(alumno.foto) // Suponiendo que tienes una URL o URI de la foto
             .into(holder.foto)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(alumno)
+        }
     }
 
     override fun getItemCount() = alumnos.size

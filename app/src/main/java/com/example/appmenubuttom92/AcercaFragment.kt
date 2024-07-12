@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.appmenubuttom92.Database.Alumno
 
-class AcercaFragment : Fragment() {
+class AcercaFragment : Fragment(), MiAdaptador.OnItemClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MiAdaptador
     private val alumnosViewModel: AlumnosViewModel by activityViewModels()
@@ -27,7 +27,7 @@ class AcercaFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         // Configurar el adaptador
-        adapter = MiAdaptador(requireContext(), listOf())
+        adapter = MiAdaptador(requireContext(), listOf(), this)
         recyclerView.adapter = adapter
 
         // Observar cambios en la lista de alumnos
@@ -40,11 +40,18 @@ class AcercaFragment : Fragment() {
         fab.setOnClickListener {
             // Reemplazar el fragmento actual con DbFragment
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.frmContenedor, DbFragment())
+            transaction.replace(R.id.frmContenedor, DbFragment.newInstance(null))
             transaction.addToBackStack(null)
             transaction.commit()
         }
 
         return view
+    }
+
+    override fun onItemClick(alumno: Alumno) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.frmContenedor, DbFragment.newInstance(alumno))
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
