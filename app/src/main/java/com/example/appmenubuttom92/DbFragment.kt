@@ -27,7 +27,6 @@ class DbFragment : Fragment() {
     private lateinit var btnGuardar: Button
     private lateinit var btnBuscar: Button
     private lateinit var btnBorrar: Button
-    private lateinit var btnLimpiar: Button
     private lateinit var btnTest: Button
     private lateinit var btnSelectImage: Button
     private lateinit var txtMatricula: EditText

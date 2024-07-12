@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.appmenubuttom92.Database.Alumno
 
 class AcercaFragment : Fragment() {
@@ -33,6 +34,16 @@ class AcercaFragment : Fragment() {
         alumnosViewModel.alumnos.observe(viewLifecycleOwner, Observer { alumnos ->
             adapter.actualizarAlumnos(alumnos)
         })
+
+        // Configurar el FloatingActionButton
+        val fab: FloatingActionButton = view.findViewById(R.id.agregarAlumno)
+        fab.setOnClickListener {
+            // Reemplazar el fragmento actual con DbFragment
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.frmContenedor, DbFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return view
     }
