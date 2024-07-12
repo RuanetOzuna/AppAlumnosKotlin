@@ -56,12 +56,13 @@ class MiAdaptador(private val context: Context, private var alumnos: List<Alumno
     }
 
     fun filtrar(query: String?) {
-        alumnosFiltrados = if (query.isNullOrEmpty()) {
-            alumnos
+        if (query.isNullOrEmpty()) {
+            alumnosFiltrados = alumnos
         } else {
-            alumnos.filter {
-                it.nombre.contains(query, ignoreCase = true) ||
-                        it.matricula.contains(query, ignoreCase = true)
+            val queryTerms = query.toLowerCase().split(" ")
+            alumnosFiltrados = alumnos.filter { alumno ->
+                val nombreTerms = alumno.nombre.toLowerCase().split(" ")
+                queryTerms.all { term -> nombreTerms.any { it.contains(term) } }
             }
         }
         notifyDataSetChanged()

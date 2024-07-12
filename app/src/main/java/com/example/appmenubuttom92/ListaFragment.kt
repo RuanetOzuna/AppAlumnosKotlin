@@ -88,9 +88,10 @@ class ListaFragment : Fragment() {
                         filterResults.values = items
                         filterResults.count = items.size
                     } else {
-                        val query = constraint.toString().toLowerCase().trim()
-                        val filteredList = items.filter {
-                            it.toLowerCase().contains(query)
+                        val query = constraint.toString().toLowerCase().trim().split(" ")
+                        val filteredList = items.filter { item ->
+                            val itemTerms = item.toLowerCase().split(" ")
+                            query.all { term -> itemTerms.any { it.contains(term) } }
                         }
                         filterResults.values = filteredList
                         filterResults.count = filteredList.size
