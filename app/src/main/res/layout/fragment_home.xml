@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,246 +6,249 @@
     tools:context=".HomeFragment"
     android:background="@color/white">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="16dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sfrmHome"
-                android:textSize="25sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:padding="8dp"
-                android:background="@drawable/bg_rounded_indigo"/>
-        </androidx.cardview.widget.CardView>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginEnd="8dp"
-                app:cardCornerRadius="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
                 app:cardElevation="8dp"
-                android:layout_margin="16dp">
+                app:cardCornerRadius="16dp">
 
-                <ImageView
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/logoupsin"
-                    android:scaleType="centerCrop"
-                    android:layout_margin="4dp"/>
+                    android:layout_height="wrap_content"
+                    android:text="Inicio"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_rounded_indigo"/>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="8dp"
-                app:cardCornerRadius="100dp"
-                app:cardElevation="8dp"
-                android:layout_margin="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ruanet"
-                    android:scaleType="centerCrop"/>
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="75dp"
+                    app:cardElevation="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/logoupsin"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="4dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="75dp"
+                    app:cardElevation="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ruanet"
+                        android:scaleType="centerCrop"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del alumno:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ozuna Diaz Ruanet Alejandro"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Matrícula:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2021030124"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la Universidad:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Universidad Politécnica de Sinaloa"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Carrera y Grupo:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ing. en Tecnologías de la Información 9-2"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la materia:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alumno_materia"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del Profesor:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profesor_nombre"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del Trabajo:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trabajo_nombre"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha de entrega:"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_entrega"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:text="LinkedIn"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/linkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:autoLink="web"
+                android:textColorLink="@color/black"
+                android:text="https://www.linkedin.com/in/ruanetozuna"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/azul_logo"
+                android:text="GitHub"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:autoLink="web"
+                android:textColorLink="@color/black"
+                android:text="https://github.com/RuanetOzuna"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre del alumno:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/alumno_nombre"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Matrícula:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/alumno_matricula"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre de la Universidad:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/universidad_nombre"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Carrera y Grupo:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/alumno_carrera_grupo"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre de la materia:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/alumno_materia"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre del Profesor:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/profesor_nombre"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre del Trabajo:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/trabajo_nombre"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fecha de entrega:"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fecha_entrega"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:text="LinkedIn"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/linkedin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:autoLink="web"
-            android:textColorLink="@color/black"
-            android:text="https://www.linkedin.com/in/ruanetozuna"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/azul_logo"
-            android:text="GitHub"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/github"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:autoLink="web"
-            android:textColorLink="@color/black"
-            android:text="https://github.com/RuanetOzuna"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"/>
-
-    </LinearLayout>
+    </ScrollView>
 </FrameLayout>
