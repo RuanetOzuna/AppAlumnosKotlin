@@ -15,11 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import com.ruanetrevan.appmenubuttom92.Database.Alumno
@@ -39,7 +35,7 @@ class DbFragment : Fragment() {
     private lateinit var txtMatricula: EditText
     private lateinit var txtNombre: EditText
     private lateinit var txtDomicilio: EditText
-    private lateinit var txtEspecialidad: EditText
+    private lateinit var spnEspecialidad: Spinner
     private lateinit var imgPreview: ImageView
     private lateinit var txtError: TextView
     private lateinit var db: dbAlumnos
@@ -58,9 +54,28 @@ class DbFragment : Fragment() {
         txtMatricula = view.findViewById(R.id.txtMatricula)
         txtNombre = view.findViewById(R.id.txtNombre)
         txtDomicilio = view.findViewById(R.id.txtDomicilio)
-        txtEspecialidad = view.findViewById(R.id.txtEspecialidad)
+        spnEspecialidad = view.findViewById(R.id.spnEspecialidad)
         imgPreview = view.findViewById(R.id.imgPreview)
         txtError = view.findViewById(R.id.txtError)
+
+        // Configura el Spinner con las opciones
+        val especialidades = arrayOf(
+            "Ing. en Tecnologías de la Información",
+            "Ing. en Biotecnología",
+            "Ing. Mecatrónica",
+            "Ing. en Energía",
+            "Ing. en Logística y Transporte",
+            "Lic. en Terapia Física",
+            "Ing. en Tecnología Ambiental",
+            "Ing. Biomédica",
+            "Ing. en Animación y Efectos Visuales",
+            "Ing. en Nanotecnología",
+            "Lic. en Administración y Gestión Empresarial"
+        )
+
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, especialidades)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spnEspecialidad.adapter = adapter
 
         // Recuperar alumno de los argumentos
         val alumno = arguments?.getParcelable<Alumno>("alumno")
@@ -78,23 +93,10 @@ class DbFragment : Fragment() {
             val matricula = txtMatricula.text.toString()
             val nombre = txtNombre.text.toString()
             val domicilio = txtDomicilio.text.toString()
-            val especialidad = txtEspecialidad.text.toString()
+            val especialidad = spnEspecialidad.selectedItem.toString()
 
             if (nombre.isEmpty() || matricula.isEmpty() || domicilio.isEmpty() || especialidad.isEmpty()) {
                 Toast.makeText(requireContext(), "Campos Faltantes", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (especialidad != "Licenciatura" && especialidad != "Ingeniería" && especialidad != "Ing. Tec. de la Información") {
-                txtError.visibility = View.VISIBLE
-                txtError.text = "Especialidad debe ser 'Licenciatura' o 'Ingenieria' o 'Ing. Tec. de la Información'"
-                return@setOnClickListener
-            } else {
-                txtError.visibility = View.GONE
-            }
-
-            if (selectedImageUri == null) {
-                Toast.makeText(requireContext(), "Debes subir una foto", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -158,7 +160,9 @@ class DbFragment : Fragment() {
                 if (alumno.id != 0) {
                     txtNombre.setText(alumno.nombre)
                     txtDomicilio.setText(alumno.domicilio)
-                    txtEspecialidad.setText(alumno.especialidad)
+                    // Selecciona la especialidad en el Spinner
+                    val position = (spnEspecialidad.adapter as ArrayAdapter<String>).getPosition(alumno.especialidad)
+                    spnEspecialidad.setSelection(position)
                     if (alumno.foto.isNotEmpty()) {
                         val imageFile = File(alumno.foto)
                         if (imageFile.exists()) {
@@ -234,7 +238,7 @@ class DbFragment : Fragment() {
         txtMatricula.setText("")
         txtNombre.setText("")
         txtDomicilio.setText("")
-        txtEspecialidad.setText("")
+        spnEspecialidad.setSelection(0)
         imgPreview.setImageURI(null)
         imgPreview.visibility = View.GONE
         txtError.visibility = View.GONE
@@ -284,7 +288,9 @@ class DbFragment : Fragment() {
         txtMatricula.setText(alumno.matricula)
         txtNombre.setText(alumno.nombre)
         txtDomicilio.setText(alumno.domicilio)
-        txtEspecialidad.setText(alumno.especialidad)
+        // Selecciona la especialidad en el Spinner
+        val position = (spnEspecialidad.adapter as ArrayAdapter<String>).getPosition(alumno.especialidad)
+        spnEspecialidad.setSelection(position)
         if (alumno.foto.isNotEmpty()) {
             val imageFile = File(alumno.foto)
             if (imageFile.exists()) {

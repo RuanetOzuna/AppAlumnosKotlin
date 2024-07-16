@@ -13,7 +13,7 @@ android {
         applicationId = "com.ruanetrevan.appmenubuttom92"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
+        versionCode = 4
         versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

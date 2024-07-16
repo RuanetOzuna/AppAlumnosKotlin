@@ -39,12 +39,15 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                android:background="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:background="@color/white">
+
                     <TextView
                         android:id="@+id/lblMatricula"
                         android:layout_width="match_parent"
@@ -59,7 +62,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:hint="Matricula"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/black"
+                        android:textColorHint="#BDBDBD"/>
                     <TextView
                         android:id="@+id/lblNombre"
                         android:layout_width="match_parent"
@@ -73,7 +79,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="Paterno, Materno, Nombres" />
+                        android:hint="Paterno, Materno, Nombres"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/black"
+                        android:textColorHint="#BDBDBD"/>
                     <TextView
                         android:id="@+id/lblDomicilio"
                         android:layout_width="match_parent"
@@ -87,7 +96,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="Calle # Colonia CP" />
+                        android:hint="Calle # Colonia CP"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/black"
+                        android:textColorHint="#BDBDBD"/>
                     <TextView
                         android:id="@+id/lblEspecialidad"
                         android:layout_width="match_parent"
@@ -96,12 +108,14 @@
                         android:text="Especialidad"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
-                    <EditText
-                        android:id="@+id/txtEspecialidad"
+                    <!-- Reemplazo de EditText por Spinner -->
+                    <Spinner
+                        android:id="@+id/spnEspecialidad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="Licenciatura, Ingenieria o Ing. Tec. de la Información" />
+                        android:backgroundTint="@color/black"
+                        />
                     <TextView
                         android:id="@+id/lblFoto"
                         android:layout_width="match_parent"
@@ -115,6 +129,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:textColor="@color/white"
                         android:text="Seleccionar Imagen" />
                     <androidx.cardview.widget.CardView
                         android:layout_width="200dp"
@@ -122,8 +137,10 @@
                         android:layout_gravity="center"
                         android:layout_margin="16dp"
                         app:cardCornerRadius="100dp"
-                        app:cardElevation="8dp">
+                        app:cardElevation="8dp"
+                        android:background="@color/white">
                         <ImageView
+                            android:background="@color/white"
                             android:id="@+id/imgPreview"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

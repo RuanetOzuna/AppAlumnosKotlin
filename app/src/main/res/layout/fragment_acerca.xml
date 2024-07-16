@@ -94,22 +94,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recId"/>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/agregarAlumno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/agregar"
+                    app:backgroundTint="@color/cardview_light_background"
+                    app:borderWidth="2dp"
+                    app:elevation="3dp" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="20dp"
-            app:backgroundTint="@color/cardview_light_background"
-            app:elevation="3dp"
-            app:borderWidth="2dp"
-            android:src="@drawable/agregar"
-            android:id="@+id/agregarAlumno"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>
